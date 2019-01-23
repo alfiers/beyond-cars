@@ -1,0 +1,10 @@
+.app-header {
+  height: 80px;
+  background-color: rgba(100, 100, 100, 0.6);
+  display: flex;
+  align-items: center;
+}
+
+.app-header img {
+  height: 100%;
+}

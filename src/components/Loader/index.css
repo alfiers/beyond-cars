@@ -1,0 +1,12 @@
+.loader-container {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  background: #fff;
+  opacity: 0.2;
+}
