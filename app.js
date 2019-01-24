@@ -40,7 +40,6 @@ app.post("/api/sendemail", (req, res) => {
       consign: consignPrice
     }
   };
-  console.log(msg);
 
   sgMail
     .send(msg)
