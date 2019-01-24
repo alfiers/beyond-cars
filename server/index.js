@@ -13,7 +13,9 @@ sgMail.setApiKey(
 app.use(cors());
 app.use(morgan("dev"));
 
-app.use(express.static(path.join(__dirname, "dist")));
+const appDir = process.cwd();
+
+app.use(express.static(path.join(appDir, "build")));
 
 app.use(bodyParser.json());
 
@@ -54,9 +56,9 @@ app.post("/api/sendemail", (req, res) => {
 });
 
 app.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "dist/index.html"));
+  res.sendFile(path.join(appDir, "/build/index.html"));
 });
 
-app.listen(4000, err => {
-  console.log("opened");
+app.listen(4000, "0.0.0.0", err => {
+  console.log("listening on http://0.0.0.0:4000");
 });
