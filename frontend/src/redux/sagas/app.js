@@ -6,7 +6,7 @@ import { updateDetails, setAppLoading } from "../actions/app";
 
 import { SENDGRID_TEMPLATEIDS } from "../../config";
 
-import { sendGridEmail, getSendGridTemplate } from "../../services/api";
+import { sendGridEmail } from "../../services/api";
 
 export function* saveDetails(action) {
   const { id, details } = action.payload;
@@ -60,13 +60,16 @@ function detailsChannel(uid) {
 }
 
 export function* sendEmail(action) {
-  console.log(action);
   const { details, language } = action.payload;
   yield put(setAppLoading(true));
   try {
-    const response = yield call(getSendGridTemplate, SENDGRID_TEMPLATEIDS[0]);
-    console.log(response);
-    yield call(sendGridEmail, { emailTo: details.email });
+    yield call(sendGridEmail, {
+      emailTo: details.email,
+      content: {
+        ...details,
+        language
+      }
+    });
     yield put(setAppLoading(false));
   } catch (error) {
     yield put(setAppLoading(false));
