@@ -6,16 +6,15 @@ const morgan = require("morgan");
 const sgMail = require("@sendgrid/mail");
 const app = express();
 
-sgMail.setApiKey(
-  "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"
-);
+const env = require("./config.json");
+const SENDGRID_KEY = env["SENDGRID_KEY"];
+
+sgMail.setApiKey(SENDGRID_KEY);
 
 app.use(cors());
 app.use(morgan("dev"));
 
-const appDir = process.cwd();
-
-app.use(express.static(path.join(appDir, "build")));
+app.use(express.static(path.resolve(__dirname, "build")));
 
 app.use(bodyParser.json());
 
@@ -56,9 +55,10 @@ app.post("/api/sendemail", (req, res) => {
 });
 
 app.get("/*", (req, res) => {
-  res.sendFile(path.join(appDir, "/build/index.html"));
+  console.log("-----", req.params);
+  res.sendFile(path.resolve(__dirname, "build", "index.html"));
 });
 
-app.listen(4000, "0.0.0.0", err => {
+app.listen(4000, err => {
   console.log("listening on http://0.0.0.0:4000");
 });

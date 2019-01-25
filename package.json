@@ -20,12 +20,12 @@
     "multer": "*"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node index.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "now-build": "react-scripts build && mv build dist",
-    "now-start": "serve --single ./build",
+    "now-build": "react-scripts build",
+    "now-start": "node index.js",
     "predeploy": "yarn build",
     "deploy": "gh-pages -d build"
   },

@@ -1,6 +1,18 @@
 {
-  "type": "docker",
-  "features": {
-    "cloud": "v1"
-  }
+  "version": 2,
+  "alias": ["beyond.sellcar.hk"],
+  "builds": [
+    {
+      "src": "index.js",
+      "use": "@now/node-server",
+      "config": { "maxLambdaSize": "50mb" }
+    },
+    { "src": "package.json", "use": "@now/static-build" }
+  ],
+  "routes": [
+    {
+      "src": "^/(.*)",
+      "dest": "/index.js"
+    }
+  ]
 }
