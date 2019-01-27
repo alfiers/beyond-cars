@@ -54,9 +54,7 @@ app.post("/api/sendemail", (req, res) => {
       return res.json({ status: 400 });
     });
 });
-
 app.get("/*", (req, res) => {
-  console.log("-----", req.params);
   res.sendFile(path.resolve(__dirname, "build", "index.html"));
 });
 
