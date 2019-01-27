@@ -6,8 +6,9 @@ const morgan = require("morgan");
 const sgMail = require("@sendgrid/mail");
 const app = express();
 
-const env = require("./config.json");
-const SENDGRID_KEY = env["SENDGRID_KEY"];
+const env = require("dotenv").config();
+
+const SENDGRID_KEY = env.parsed["SENDGRID_KEY"];
 
 sgMail.setApiKey(SENDGRID_KEY);
 
