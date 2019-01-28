@@ -31,8 +31,8 @@ app.post("/api/sendemail", (req, res) => {
     emailFrom
   } = req.body;
   const msg = {
-    to: "chrisyeung@beyondcars.com",
-    from: "Hello@beyondcars.com",
+    to: emailTo,
+    from: "hello@beyondcars.com",
     templateId: templateID,
     dynamic_template_data: {
       firstName: customerName,
