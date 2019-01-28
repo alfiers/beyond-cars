@@ -25,7 +25,7 @@ class App extends Component {
       <MuiThemeProvider theme={theme}>
         <Header />
         <Switch>
-          <Route exact path="/:id" component={Details} />
+          <Route exact path="/c/:id" component={Details} />
           <Route path="/" component={NotFound} />
         </Switch>
         {loading && <Loader />}
