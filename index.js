@@ -24,7 +24,7 @@ app.post("/api/sendemail", (req, res) => {
     customerName,
     carYear,
     carModel,
-    canDirectSale,
+    dealerPrice,
     consignPrice,
     templateID,
     emailTo,
@@ -38,7 +38,7 @@ app.post("/api/sendemail", (req, res) => {
       firstName: customerName,
       year: carYear,
       model: carModel,
-      direct: canDirectSale,
+      direct: dealerPrice,
       consign: consignPrice
     }
   };

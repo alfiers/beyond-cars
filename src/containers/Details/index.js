@@ -68,7 +68,7 @@ class Details extends React.Component {
   };
   whatsapp = () => {
     const { phoneNumber } = this.state.details;
-    window.open("https://wa.me/" + phoneNumber, "_blank");
+    window.open("https://wa.me/852" + phoneNumber, "_blank");
   };
   render() {
     const { details, changed } = this.state;
