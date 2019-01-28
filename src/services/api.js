@@ -22,7 +22,7 @@ export const sendGridEmail = ({ emailTo, content }) => {
       methods.indexOf(preferredSellingMethod) * 2 + lngs.indexOf(language)
     ];
 
-  const url = "http://localhost:4000/api/sendemail";
+  const url = "https://beyond.sellcar.hk/api/sendemail";
 
   const body = {
     ...content,
